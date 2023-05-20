@@ -82,7 +82,6 @@ public class PostController {
 	        response.setStatus("INSERTED");
 	        return ResponseEntity.ok(response);
 	    }
-	 
 	 @DeleteMapping(value = "/stb23/delete/{id}", produces = MediaType.APPLICATION_XML_VALUE)
 	 public ResponseEntity<?> deleteSTB(@PathVariable("id") String id) {
 	     try {
@@ -90,22 +89,26 @@ public class PostController {
 	         if (!stbService.existsById(id)) {
 	             ErrorXmlResponse errorResponse = new ErrorXmlResponse("ERROR", "Unexisted");
 	             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
+	         } else {
+	             // Récupérer la spécification avant de la supprimer
+	             STB deletedSTB = stbService.getSTBById(id);
+	             
+	             // Supprimer la spécification
+	             stbService.deleteSTB(id);
+
+	             // Créer la réponse XML contenant les informations de la spécification supprimée
+	             STBXmlResponseInsert response = new STBXmlResponseInsert();
+	             response.setId(deletedSTB.getId());
+	             response.setStatus("DELETED");
+
+	             return ResponseEntity.ok(response);
 	         }
-
-	         // Supprimer la spécification
-	         stbService.deleteSTB(id);
-
-	         // Créer la réponse XML contenant les informations de la spécification supprimée
-	         STBXmlResponseInsert response = new STBXmlResponseInsert();
-	         response.setId(id);
-	         response.setStatus("DELETED");
-
-	         return ResponseEntity.ok(response);
 	     } catch (Exception e) {
-	         ErrorXmlResponse errorResponse = new ErrorXmlResponse("ERROR", "");
+	         ErrorXmlResponse errorResponse = new ErrorXmlResponse("ERROR", "Unexisted");
 	         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
 	     }
 	 }
+
 
 
 }

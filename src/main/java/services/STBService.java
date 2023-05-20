@@ -13,6 +13,8 @@ import javax.xml.validation.Validator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.io.File;
+import java.util.Optional;
+
 import model.STB;
 
 @Service
@@ -69,7 +71,11 @@ public class STBService {
     }
 
 
-	
+    public STB getSTBById(String id) {
+        Optional<STB> stb = stbRepository.findById(id);
+        return stb.orElse(null);
+    }
+
 
 }
 

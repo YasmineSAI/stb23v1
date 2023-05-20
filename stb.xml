@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <stb>
+    <date>2023-01-20T01:00:00+01:00</date>
     <description>Créer une plateforme de commande de repas en ligne permettant aux utilisateurs de consulter les menus, passer des commandes </description>
     <id>6</id>
-    <nomEntite>Fod</nomEntite>
     <titre>Platefoe de Commande de Repas en Ligne</titre>
 </stb>
