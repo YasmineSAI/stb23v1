@@ -132,7 +132,7 @@ public class GetController {
 
     
     @GetMapping(value = "/help")
-    public ResponseEntity<String> getInfo() {
+    public ResponseEntity<String> getInfoHelp() {
         return ResponseEntity.ok(TestSTB.loadFileAide());
     }
 
