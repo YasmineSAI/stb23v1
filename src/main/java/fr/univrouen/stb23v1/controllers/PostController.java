@@ -50,10 +50,13 @@ public class PostController {
 	        // Validation du flux XML par rapport au schéma XSD
 
 		 
-		 if(!stbService.convertSTBToXMLAndValidate(stb, "stb.xml", "src/main/resources/stb23.xsd"))
-	            throw new STBInvalidException(INVALID_XML);
-	        
-
+		 if(!stbService.convertSTBToXMLAndValidate(stb, "stb.xml", "src/main/resources/stb23.xsd")) {
+	         
+	            ErrorXmlResponse errorResponse_xsd = new ErrorXmlResponse("ERROR", INVALID_XML);
+	            return ResponseEntity.ok(errorResponse_xsd);
+	            //throw new STBInvalidException(INVALID_XML);
+	          
+		 }
 	        // Vérification si la STB existe déjà
 	        if (stbRepo.existsByTitreAndVersionAndDate(stb.getId(), stb.getTitre(), stb.getDescription(), stb.getDate(), stb.getNomEntite())) {
 	            ErrorXmlResponse errorResponse = new ErrorXmlResponse("ERROR", "DUPLICATED");
