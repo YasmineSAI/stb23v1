@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<stb xmlns="http://univrouen.fr/stb" 
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+     xsi:schemaLocation="http://univrouen.fr/stb STB.xsd">
+    <title>Sample STB</title>
+    <version>1.0</version>
+    <date>2023-05-19T12:00:00Z</date>
+    <description>Sample STB description</description>
+    <client>
+        <entity>Client Entity</entity>
+        <person gender="M" lastname="Doe"/>
+        <mail>johndoe@example.com</mail>
+        <tel>(123) 456 7890</tel>
+    </client>
+    <team>
+        <member>
+            <person gender="M" lastname="Smith"/>
+            <mail>smith@example.com</mail>
+            <function>Team Member</function>
+        </member>
+        <member>
+            <person gender="F" lastname="Johnson"/>
+            <function>Team Lead</function>
+        </member>
+    </team>
+    <features>
+        <feature name="Feature 1" section="Section 1" number="1">
+            <description>Feature 1 description</description>
+            <priority>5</priority>
+        </feature>
+        <feature name="Feature 2" section="Section 2" number="2">
+            <description>Feature 2 description</description>
+            <priority>8</priority>
+            <delivery>2023-06-01T00:00:00Z</delivery>
+            <comment>Feature 2 comment</comment>
+        </feature>
+    </features>
+</stb>

@@ -1,0 +1,164 @@
+{
+	"info": {
+		"_postman_id": "706a5990-acf0-4ddf-bc43-2e57e63733fd",
+		"name": "stb23_boufafa",
+		"description": "Un fichier json qui contient toutes les requetes du projet stb23.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "26737529"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/stb23/insert",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<stb xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:noNamespaceSchemaLocation=\"schema.xsd\">\r\n    <date>2023-01-20T01:00:00+01:00</date>\r\n    <description>Créer une plateforme de commande de repas en ligne permettant aux utilisateurs de consulter les menus, passer des commandes </description>\r\n    <id>6</id>\r\n    <nomEntite>Fod</nomEntite>\r\n    <titre>Platefoe de Commande de Repas en Ligne</titre>\r\n</stb>\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": "http://localhost:8080/stb23/insert"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/stb23/delete/4",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8080/stb23/delete/4"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/stb23/resume",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/stb23/resume"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/stb23/html/error?id=9",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/stb23/html/error?id=9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"stb23",
+						"html",
+						"error"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "9"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/stb23/html/stb_details?id=1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/stb23/html/stb_details?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"stb23",
+						"html",
+						"stb_details"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/help",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/help"
+			},
+			"response": []
+		},
+		{
+			"name": "/stb23/resume/xml",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/stb23/resume/xml"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/stb23/xml/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/stb23/xml/1"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "8080",
+			"type": "string"
+		}
+	]
+}

@@ -1,0 +1,42 @@
+L'installation et l'utilisation de la BDD mongodb sur windows 
+Étape 1: Téléchargement de MongoDB
+Rendez-vous sur le site officiel de MongoDB à l'adresse suivante : https://www.mongodb.com/try/download/community.
+Sous la section "Community Server", sélectionnez la version de MongoDB adaptée à votre système d'exploitation (Windows) et téléchargez la.
+(De préférence téléchargez la version 5 du MongoDB).
+
+Étape 2: Installation de MongoDB
+
+Une fois le téléchargement terminé, exécutez le fichier d'installation.
+
+Étape 3: Configuration de MongoDB
+
+Ouvrez l'Explorateur de fichiers et accédez à l'emplacement où MongoDB est installé.
+Par défaut, il est installé dans le répertoire "C:\Program Files\MongoDB\Server<version>".
+Dans le répertoire MongoDB, créez un nouveau dossier appelé "data". Cela servira de répertoire de données pour MongoDB.
+Retournez dans le répertoire MongoDB et ouvrez le fichier "mongod.cfg" avec un éditeur de texte.
+Ajoutez la ligne suivante dans le fichier : dbpath=C:\Program Files\MongoDB\Server\<version>\data\db. 
+Remplacez "<version>" par la version de MongoDB que vous avez installée.
+Enregistrez le fichier et fermez-le.
+
+Étape 4: Démarrage de MongoDB
+
+Ouvrez une fenêtre de commande (Invite de commandes).
+Accédez au répertoire d'installation de MongoDB en utilisant la commande suivante : cd C:\Program Files\MongoDB\Server\<version>\bin
+Pour démarrer le serveur MongoDB, exécutez la commande suivante : mongod.
+
+Étape 5: Utilisation de MongoDB
+
+Ouvrez une autre fenêtre de commande.
+Accédez au répertoire d'installation de MongoDB comme décrit précédemment.
+Pour vous connecter à l'instance MongoDB, exécutez la commande suivante : mongo
+Cela ouvrira le shell MongoDB.
+
+Et maintenant on crée la base de donnée qu'on veut uttiliser dans notre projet SPRING à l'aide des commandes suivantes : 
+
+Le script de création de BDD mongoDB
+
+use STB // La base de donnée sera nomée STB
+db   // Pour afficher la bdd courante
+show dbs // Afficher les bdds existantes 
+db.stb.insert({ id:1, titre:'Platefoe de Commande de Repas en Ligne', description:'Créer une plateforme de commande de repas en ligne permettant aux utilisateurs de consulter les menus, passer des commandes ', date_validation: "2023-01-20T01:00:00+01:00", nom_entite_client:"Food Express"})
+// On insère une spécification dans la table stb qui a les colonnes suivates : id, titre, description, date_validation, nom_entite_client

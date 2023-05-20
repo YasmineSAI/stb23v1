@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://univrouen.fr/stb" 
+	xmlns:stb="http://univrouen.fr/stb" 
+	elementFormDefault="qualified">
+	
+	<xs:element name="stb" type="stb:stbType"/>
+<xs:element name="title" type="stb:title"/>
+<xs:element name="version" type="xs:decimal" default="0.1"/>
+<xs:element name="date" type="xs:dateTime"/>
+<xs:element name="description" type="stb:description"/>
+<xs:element name="client" type="stb:clientType"/>
+<xs:element name="entity" type="stb:entity"/>
+<xs:element name="person" type="stb:personType"/>
+<xs:element name="mail" type="stb:mail"/>
+<xs:element name="tel" type="stb:tel"/>
+<xs:element name="gender" type="stb:gender"/>
+<xs:element name="lastname" type="stb:lastname"/>
+<xs:element name="team" type="stb:teamType"/>
+<xs:element name="member" type="stb:memberType"/>
+<xs:element name="function" type="stb:function"/>
+<xs:element name="features" type="stb:featuresType"/>
+<xs:element name="feature" type="stb:featureType"/>
+<xs:element name="name" type="stb:name"/>
+<xs:element name="section" type="stb:section"/>
+<xs:element name="priority" type="stb:priority"/>
+<xs:element name="delivery" type="xs:dateTime"/>
+<xs:element name="comment" type="xs:string"/>
+<xs:complexType name="stbType">
+<xs:all>
+<xs:element ref="stb:title" minOccurs="1" maxOccurs="1"/>
+<xs:element ref="stb:version" minOccurs="1" maxOccurs="1"/>
+<xs:element ref="stb:date" minOccurs="1" maxOccurs="1"/>
+<xs:element ref="stb:description" minOccurs="1" maxOccurs="1"/>
+<xs:element ref="stb:client" minOccurs="1" maxOccurs="1"/>
+<xs:element ref="stb:team" minOccurs="1" maxOccurs="1"/>
+<xs:element ref="stb:features" minOccurs="1" maxOccurs="1"/>
+</xs:all>
+</xs:complexType>
+<xs:complexType name="personType">
+<xs:attribute name="gender" type="stb:gender" use="optional"/>
+<xs:attribute name="lastname" type="stb:lastname" use="required"/>
+</xs:complexType>
+<xs:simpleType name="mail">
+<xs:restriction base="xs:string">
+<xs:pattern value="\w+([-+.']\w+[0-9])*@\w+([-.]\w+[0-9])*\.\w*"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="tel">
+<xs:restriction base="xs:string">
+<xs:pattern value="\([0-9]\){10}"/>
+<xs:pattern value="\([0-9]{2}\) [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}"/>
+<xs:pattern value="\([0-9]{1}\) [0-9]{3} [0-9]{3} [0-9]{3}"/>
+<xs:pattern value="\(+33\) [0-9]{1} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2} "/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="gender">
+<xs:restriction base="xs:string">
+<xs:pattern value="M.|Mme|Mrs|Miss|Mr"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="lastname">
+<xs:restriction base="xs:string">
+<xs:maxLength value="32"/>
+<xs:pattern value="[a-zA-Z0-9\-']*"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="entity">
+<xs:restriction base="xs:string">
+<xs:maxLength value="32"/>
+<xs:pattern value="[a-zA-Z0-9\-']*"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="description">
+<xs:restriction base="xs:string">
+<xs:maxLength value="128"/>
+<xs:pattern value="[a-zA-Z0-9\-'.,:;~@()#!?$*=#]*"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="title">
+<xs:restriction base="xs:string">
+<xs:maxLength value="128"/>
+<xs:pattern value="[a-zA-Z0-9\-'.,:;~@()#!?$*=#]*"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="name">
+<xs:restriction base="xs:string">
+<xs:maxLength value="128"/>
+<xs:pattern value="[a-zA-Z0-9\-'.,:;~@()#!?$*=#]*"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="section">
+<xs:restriction base="xs:string">
+<xs:maxLength value="32"/>
+<xs:pattern value="[a-zA-Z0-9\-']*"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="function">
+<xs:restriction base="xs:string">
+<xs:maxLength value="128"/>
+<xs:pattern value="[a-zA-Z0-9\-'.,:;~@()#!?$*=#]*"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="priority">
+<xs:restriction base="xs:int">
+<xs:pattern value="[0..10]"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:complexType name="clientType">
+<xs:sequence>
+<xs:element ref="stb:entity" minOccurs="1" maxOccurs="1"/>
+<xs:element ref="stb:person" minOccurs="1" maxOccurs="1"/>
+<xs:element ref="stb:mail" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element ref="stb:tel" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="teamType">
+<xs:sequence>
+<xs:element ref="stb:member" minOccurs="2" maxOccurs="8"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="memberType">
+<xs:sequence>
+<xs:element ref="stb:person" minOccurs="1" maxOccurs="1"/>
+<xs:element ref="stb:mail" minOccurs="0" maxOccurs="1"/>
+<xs:element ref="stb:function" minOccurs="1" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="featuresType">
+<xs:sequence>
+<xs:element ref="stb:features" minOccurs="1" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="featureType">
+<xs:sequence>
+<xs:element ref="stb:description" minOccurs="1" maxOccurs="1"/>
+<xs:element ref="stb:priority" minOccurs="1" maxOccurs="1"/>
+<xs:element ref="stb:delivery" minOccurs="0" maxOccurs="1"/>
+<xs:element ref="stb:comment" minOccurs="0" maxOccurs="1"/>
+</xs:sequence>
+<xs:attribute name="name" type="stb:name" use="required"/>
+<xs:attribute name="section" type="stb:section" use="required"/>
+<xs:attribute name="number" type="xs:int" use="required"/>
+</xs:complexType>
+</xs:schema>
