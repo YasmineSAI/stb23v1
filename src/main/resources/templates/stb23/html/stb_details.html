@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Details de la specification</title>
+</head>
+<body>
+    <h1>Details de la specification</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Titre</th>
+            <th>Description</th>
+            <th>Date</th>
+            <th>Nom de l'entite</th>
+        </tr>
+        <tr>
+            		<td th:utext="${spec.id}"></td>
+	                <td th:utext="${spec.titre}"></td>
+	                <td th:utext="${spec.description}"></td>
+	                <td th:utext="${spec.date}"></td>
+	                <td th:utext="${spec.nomEntite}"></td>
+        </tr>
+    </table>
+</body>
+</html>

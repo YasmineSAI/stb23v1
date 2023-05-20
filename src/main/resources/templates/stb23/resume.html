@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+ <title>Liste des spécifications</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+ <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<h1>Liste des spécifications</h1>
+ <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Date de valiDation</th>
+                <th>Nom de l'entite client</th>
+            </tr>
+        </thead>
+        <tbody>
+        	<tr th:each="spec : ${specs}">
+	          
+	                <td th:utext="${spec.id}"></td>
+	                <td th:utext="${spec.titre}"></td>
+	                <td th:utext="${spec.description}"></td>
+	                <td th:utext="${spec.date}"></td>
+	                <td th:utext="${spec.nomEntite}"></td>
+	          
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
